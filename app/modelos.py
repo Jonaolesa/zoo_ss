@@ -8,6 +8,8 @@ class TipoEntrada(Enum):
 
 class Entrada:
     def __init__(self, edad: int):
+        if edad <0 :
+            raise ValueError("La edad no puede ser negativa")
         if edad <= 2:
             self.tipo = TipoEntrada.BEBE
             self.precio = 0
@@ -21,3 +23,13 @@ class Entrada:
             self.tipo = TipoEntrada.JUBILADO
             self.precio = 18
 
+class Grupo_Entrada:
+    def __init__(self):
+        self.total = 0
+        self.num_entradas = 0
+    
+    def add_entrada(self, edad):
+        nueva_entrada = Entrada(edad)
+        self.num_entradas += 1
+        self.total += nueva_entrada.precio
+        
