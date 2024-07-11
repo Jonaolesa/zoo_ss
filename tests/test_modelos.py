@@ -64,7 +64,11 @@ def test_cantidad_entradas_por_tipo():
     grupo.add_entrada(13)
     assert grupo.cantidad_entradas_por_tipo(TipoEntrada.ADULTO) == 2
 
-    grupo.add_entrada()
+def test_subtotal_por_tipo():
+    grupo = Grupo_Entrada()
+    grupo.add_entrada(10)
+    assert grupo.subtotal_tipo(TipoEntrada.NIÑO) == 14
+
     
 
 
